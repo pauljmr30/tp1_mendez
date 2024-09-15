@@ -9,7 +9,7 @@
 - Para compilar:
 
 ```bash
-gcc tp1.c src/pokedex.c src/csv.c src/strings.c -o tp1 -ggdb -O0 -std=c99 -Wall -Wconversion -Wtype-limits -Werror -I src
+gcc tp1.c src/pokedex.c src/csv.c -o tp1 -ggdb -O0 -std=c99 -Wall -Wconversion -Wtype-limits -Werror -I src
 ```
 
 - Para ejecutar:
