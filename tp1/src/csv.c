@@ -34,6 +34,9 @@ char *extraer_columna(const char *linea, char separador, size_t *inicio)
 	int tamaño_columna = -1;
 	size_t longitud_linea = str_lenr(linea, 0);
 	char *columna = NULL;
+	if (linea == NULL) {
+		return NULL;
+	}
 
 	for (size_t i = (*inicio); i <= longitud_linea; i++) {
 		(linea[i] != 32) ? (tamaño_columna++) : (tamaño_columna + 0);
@@ -62,15 +65,15 @@ char *extraer_columna(const char *linea, char separador, size_t *inicio)
 size_t leer_linea_csv(struct archivo_csv *archivo, size_t columnas,
 		      bool (*funciones[])(const char *, void *), void *ctx[])
 {
+	if (archivo == NULL) {
+		return 0;
+	}
 	char linea[1024];
 	if ((fgets(linea, sizeof(linea), archivo->archivo)) == NULL)
 		return 0;
 
 	size_t columnas_leidas = 0;
 	size_t inicio = 0;
-	if (archivo == NULL) {
-		return columnas_leidas;
-	}
 
 	while (columnas_leidas < columnas) {
 		char *columna =

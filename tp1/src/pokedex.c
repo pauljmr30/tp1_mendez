@@ -45,6 +45,10 @@ size_t pokedex_cantidad_pokemones(struct pokedex *pokedex)
 const struct pokemon *pokedex_buscar_pokemon(struct pokedex *pokedex,
 					     const char *nombre)
 {
+	if (pokedex == NULL) {
+		return false;
+	}
+
 	struct pokemon *encontrado = NULL;
 
 	for (size_t i = 0; i < pokedex->cantidad_pokemons; i++) {
