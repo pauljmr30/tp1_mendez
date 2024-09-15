@@ -59,8 +59,7 @@ const struct pokemon *pokedex_buscar_pokemon(struct pokedex *pokedex,
 /*
     * Devuelve true si string2 es mayor alfabeticamente que string2
 */
-bool es_string_mayor_alfabeticamente(char *string1,
-				     char *string2)
+bool es_string_mayor_alfabeticamente(char *string1, char *string2)
 {
 	if ((string1 == NULL) || (string2 == NULL)) {
 		return false;
@@ -72,8 +71,7 @@ bool es_string_mayor_alfabeticamente(char *string1,
 	while (!es_mayor && iterador < strlen(string1)) {
 		if (string1[iterador] < string2[iterador]) {
 			es_mayor = true;
-		} else if (string1[iterador] >
-			   string2[iterador]) {
+		} else if (string1[iterador] > string2[iterador]) {
 			iterador = strlen(string1) + 1;
 		}
 		iterador++;
