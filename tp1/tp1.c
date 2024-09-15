@@ -4,7 +4,6 @@
 
 #include "src/pokedex.h"
 #include "src/csv.h"
-#include "src/strings.h"
 
 struct tipos_pokemon {
 	size_t cantidad_tipo_agua;
@@ -47,7 +46,7 @@ bool leer_char(const char *str, void *ctx)
 
 bool crear_nuevo_string(const char *string, void *ctx)
 {
-	char *nuevo = malloc(str_lenr(string, 0) + 1);
+	char *nuevo = malloc(strlen(string) + 1);
 	if (nuevo == NULL)
 		return false;
 	strcpy(nuevo, string);
