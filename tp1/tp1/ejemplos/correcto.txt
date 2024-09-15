@@ -1,0 +1,17 @@
+Nombre: Cacnea, Tipo: P, Fuerza: 11, Destreza: 12, Resistencia: 14 
+Nombre: Charmander, Tipo: F, Fuerza: 10, Destreza: 5, Resistencia: 8 
+Nombre: Dedenne, Tipo: E, Fuerza: 15, Destreza: 5, Resistencia: 33 
+Nombre: Floatzel, Tipo: A, Fuerza: 24, Destreza: 20, Resistencia: 5 
+Nombre: Joltik, Tipo: E, Fuerza: 8, Destreza: 10, Resistencia: 5 
+Nombre: Larvitar, Tipo: R, Fuerza: 30, Destreza: 1, Resistencia: 40 
+Nombre: Magcargo, Tipo: F, Fuerza: 22, Destreza: 20, Resistencia: 22 
+Nombre: Pikachu, Tipo: E, Fuerza: 20, Destreza: 15, Resistencia: 17 
+Nombre: Togepi, Tipo: N, Fuerza: 8, Destreza: 8, Resistencia: 2 
+Cantidad de pokemones de cada tipo:
+Agua: 1
+Fuego: 2
+Planta: 1
+Roca: 1
+Electrico: 3
+Normal: 1
+Lucha: 0
