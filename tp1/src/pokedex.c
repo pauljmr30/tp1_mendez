@@ -121,12 +121,16 @@ size_t pokedex_iterar_pokemones(struct pokedex *pokedex,
 				bool (*funcion)(struct pokemon *, void *),
 				void *ctx)
 {
+	if (pokedex == NULL) {
+		return 0;
+	}
 	size_t pokemones_iterados = 0;
 
 	pokedex_ordenar_pokemons_alfabeticamente(pokedex);
 	for (size_t i = 0; i < pokedex->cantidad_pokemons; i++) {
 		if (!funcion(&pokedex->pokemons[i], ctx)) {
-			i = pokedex->cantidad_pokemons + 1;
+			return pokemones_iterados;
+
 		} else {
 			pokemones_iterados++;
 		}
