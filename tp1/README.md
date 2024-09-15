@@ -4,25 +4,23 @@
 
 # TP1
 
-# ESTO ES UN TEMPLATE, COMPLETAR LO QUE HAGA FALTA, ELIMINAR LO QUE SOBRE (INCLUIDA ESTA LÍNEA)
-
-## Alumno: (Nombre Apellido) - (Padrón) - (Mail)
+## Alumno: (Paul Mena) - (110893) - (pmena@fi.uba.ar)
 
 - Para compilar:
 
 ```bash
-línea de compilación
+gcc tp1.c src/pokedex.c src/csv.c src/strings.c -o tp1 -ggdb -O0 -std=c99 -Wall -Wconversion -Wtype-limits -Werror -I src
 ```
 
 - Para ejecutar:
 
 ```bash
-línea de ejecución
+./tp1
 ```
 
 - Para ejecutar con valgrind:
 ```bash
-línea con valgrind
+lvalgrind --leak-check=full --track-origins=yes --show-reachable=yes --error-exitcode=2 ./tp1 2>&1
 ```
 
 ---
