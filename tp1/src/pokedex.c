@@ -101,6 +101,9 @@ bool pokedex_agregar_pokemon(struct pokedex *pokedex, struct pokemon pokemon)
 {
 	if (pokedex == NULL) {
 		return false;
+    }
+    if (pokemon.nombre == NULL){
+        return false;
 	}
 	if (pokedex->cantidad_pokemons == pokedex->capacidad) {
 		size_t nueva_capacidad = (pokedex->capacidad == 0) ?
