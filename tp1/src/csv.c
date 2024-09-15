@@ -68,6 +68,10 @@ size_t leer_linea_csv(struct archivo_csv *archivo, size_t columnas,
 
 	size_t columnas_leidas = 0;
 	size_t inicio = 0;
+	if (archivo == NULL) {
+		return columnas_leidas;
+	}
+
 	while (columnas_leidas < columnas) {
 		char *columna =
 			extraer_columna(linea, archivo->separador, &inicio);
