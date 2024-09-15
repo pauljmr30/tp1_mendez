@@ -20,7 +20,7 @@ gcc tp1.c src/pokedex.c src/csv.c src/strings.c -o tp1 -ggdb -O0 -std=c99 -Wall 
 
 - Para ejecutar con valgrind:
 ```bash
-lvalgrind --leak-check=full --track-origins=yes --show-reachable=yes --error-exitcode=2 ./tp1 2>&1
+valgrind --leak-check=full --track-origins=yes --show-reachable=yes --error-exitcode=2 ./tp1 2>&1
 ```
 
 ---
