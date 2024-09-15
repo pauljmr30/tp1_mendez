@@ -1,4 +1,5 @@
 #include "csv.h"
+#include "strings.h"
 #include <stdio.h>
 #include <string.h>
 
