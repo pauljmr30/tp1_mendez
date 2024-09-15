@@ -1,7 +1,6 @@
 #include "pa2m.h"
 #include "src/csv.h"
 #include "src/pokedex.h"
-#include "src/strings.h"
 
 void abrirUnArchivoInexistenteDebeRetornarNull()
 {
