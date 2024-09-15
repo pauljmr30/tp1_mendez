@@ -125,7 +125,8 @@ void guardar_pokemones_txt(struct pokedex *pokedex, const char *nombre_archivo,
 
 int main(int argc, char *argv[])
 {
-	struct archivo_csv *archivo = abrir_archivo_csv("ejemplos/pokedex.csv", ';');
+	struct archivo_csv *archivo =
+		abrir_archivo_csv("ejemplos/pokedex.csv", ';');
 
 	if (archivo == NULL) {
 		printf("ERROR al intentar abrir el archivo.\n");
@@ -147,7 +148,6 @@ int main(int argc, char *argv[])
 			      &resistencia };
 	printf("Leyendo lineas ...\n");
 	while (leer_linea_csv(archivo, 5, funciones, contextos) > 0) {
-		
 		struct pokemon pokemon = {
 			.nombre = nombre,
 			.tipo = tipo,
