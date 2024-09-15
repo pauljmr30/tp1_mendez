@@ -3,7 +3,6 @@
 #include <stdbool.h>
 #include <string.h>
 #include "pokedex.h"
-#include "strings.h"
 
 struct pokedex {
 	size_t cantidad_pokemons;
@@ -49,20 +48,39 @@ const struct pokemon *pokedex_buscar_pokemon(struct pokedex *pokedex,
 		return false;
 	}
 
-	struct pokemon *encontrado = NULL;
-
 	for (size_t i = 0; i < pokedex->cantidad_pokemons; i++) {
-		for (size_t j = 0; j < str_lenr(pokedex->pokemons[i].nombre, 0);
-		     j++) {
-			if (strings_iguales(nombre,
-					    pokedex->pokemons[i].nombre)) {
-				encontrado = (&pokedex->pokemons[i]);
-			}
+		if (strcmp(nombre, pokedex->pokemons[i].nombre) == 0) {
+			return &pokedex->pokemons[i];
 		}
 	}
-	return encontrado;
+	return NULL;
 }
 
+/*
+    * Devuelve true si string2 es mayor alfabeticamente que string2
+*/
+bool es_string_mayor_alfabeticamente(char *string1,
+				     char *string2)
+{
+	if ((string1 == NULL) || (string2 == NULL)) {
+		return false;
+	}
+
+	bool es_mayor = false;
+	size_t iterador = 0;
+
+	while (!es_mayor && iterador < strlen(string1)) {
+		if (string1[iterador] < string2[iterador]) {
+			es_mayor = true;
+		} else if (string1[iterador] >
+			   string2[iterador]) {
+			iterador = strlen(string1) + 1;
+		}
+		iterador++;
+	}
+
+	return es_mayor;
+}
 /*
     * pokedex debe tener todos los pokemon ordenados por nombre de forma creciente, salvo el ultimo pokemon
     *
@@ -99,10 +117,7 @@ void pokedex_ordenar_pokemons_alfabeticamente(struct pokedex *pokedex)
 
 bool pokedex_agregar_pokemon(struct pokedex *pokedex, struct pokemon pokemon)
 {
-	if (pokedex == NULL) {
-		return false;
-	}
-	if (pokemon.nombre == NULL) {
+	if ((pokedex == NULL) || (pokemon.nombre == NULL)) {
 		return false;
 	}
 
@@ -112,14 +127,20 @@ bool pokedex_agregar_pokemon(struct pokedex *pokedex, struct pokemon pokemon)
 	if (aux == NULL) {
 		return false;
 	}
-	char *nombre_original = pokemon.nombre;
-	pokemon.nombre = malloc(str_lenr(nombre_original, 0) + 1);
-	if (pokemon.nombre == NULL) {
+	char *nombre_copiado = malloc(strlen(pokemon.nombre) + 1);
+
+	if (nombre_copiado == NULL) {
 		return false;
 	}
+	strcpy(nombre_copiado, pokemon.nombre);
 	pokedex->pokemons = aux;
-	strcpy(pokemon.nombre, nombre_original);
-	pokedex->pokemons[pokedex->cantidad_pokemons] = pokemon;
+	pokedex->pokemons[pokedex->cantidad_pokemons].nombre = nombre_copiado;
+	pokedex->pokemons[pokedex->cantidad_pokemons].tipo = pokemon.tipo;
+	pokedex->pokemons[pokedex->cantidad_pokemons].fuerza = pokemon.fuerza;
+	pokedex->pokemons[pokedex->cantidad_pokemons].destreza =
+		pokemon.destreza;
+	pokedex->pokemons[pokedex->cantidad_pokemons].resistencia =
+		pokemon.resistencia;
 	pokedex->cantidad_pokemons++;
 
 	return true;

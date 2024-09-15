@@ -1,5 +1,4 @@
 #include "csv.h"
-#include "strings.h"
 #include <stdio.h>
 #include <string.h>
 
@@ -32,7 +31,7 @@ char *extraer_columna(const char *linea, char separador, size_t *inicio)
 	size_t j = *inicio;
 	size_t posicion_valida = 0;
 	int tamaño_columna = -1;
-	size_t longitud_linea = str_lenr(linea, 0);
+	size_t longitud_linea = strlen(linea);
 	char *columna = NULL;
 	if (linea == NULL) {
 		return NULL;
