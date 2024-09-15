@@ -96,7 +96,7 @@ void pokedex_ordenar_pokemons_alfabeticamente(struct pokedex *pokedex)
 bool pokedex_agregar_pokemon(struct pokedex *pokedex, struct pokemon pokemon)
 {
 	if (pokedex == NULL) {
-		return false,
+		return false;
 	}
 	if (pokedex->cantidad_pokemons == pokedex->capacidad) {
 		size_t nueva_capacidad = (pokedex->capacidad == 0) ?
@@ -135,11 +135,9 @@ size_t pokedex_iterar_pokemones(struct pokedex *pokedex,
 
 	pokedex_ordenar_pokemons_alfabeticamente(pokedex);
 
-	for (pokemones_iterados;
-	     pokemones_iterados < pokedex->cantidad_pokemons;
-	     pokemones_iterados++) {
+	for (size_t i = 0; i < pokedex->cantidad_pokemons; i++) {
 		if (!funcion(&pokedex->pokemons[pokemones_iterados], ctx)) {
-			return (pokemones_iterados - 1);
+			return pokemones_iterados;
 
 		} else {
 			pokemones_iterados++;
