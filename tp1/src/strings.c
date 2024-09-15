@@ -4,6 +4,9 @@
 
 size_t str_lenr(const char *cadena, size_t contador)
 {
+	if (cadena == NULL) {
+		return 0;
+	}
 	if (cadena[contador] == 0)
 		return contador;
 	return str_lenr(cadena, contador + 1);
@@ -11,6 +14,9 @@ size_t str_lenr(const char *cadena, size_t contador)
 
 bool strings_iguales(const char *string1, const char *string2)
 {
+	if ((string1 == NULL) || (string2 == NULL)) {
+		return false;
+	}
 	bool son_iguales = true;
 	for (size_t i = 0; i < str_lenr(string1, 0); i++) {
 		if (string1[i] != string2[i]) {
@@ -23,6 +29,10 @@ bool strings_iguales(const char *string1, const char *string2)
 bool es_string_mayor_alfabeticamente(char *string_comparado,
 				     char *string_comparador)
 {
+	if ((string_comparado == NULL) || (string_comparador == NULL)) {
+		return false;
+	}
+
 	bool es_mayor = false;
 	size_t iterador = 0;
 

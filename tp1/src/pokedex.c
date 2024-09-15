@@ -105,25 +105,19 @@ bool pokedex_agregar_pokemon(struct pokedex *pokedex, struct pokemon pokemon)
 	if (pokemon.nombre == NULL) {
 		return false;
 	}
-	if (pokedex->cantidad_pokemons == pokedex->capacidad) {
-		size_t nueva_capacidad = (pokedex->capacidad == 0) ?
-						 1 :
-						 (pokedex->capacidad * 2);
 
-		struct pokemon *aux = (struct pokemon *)realloc(
-			pokedex->pokemons,
-			nueva_capacidad * sizeof(struct pokemon));
-		if (aux == NULL) {
-			return false;
-		}
-		pokedex->pokemons = aux;
-		pokedex->capacidad = nueva_capacidad;
+	struct pokemon *aux = (struct pokemon *)realloc(
+		pokedex->pokemons,
+		(pokedex->cantidad_pokemons + 1) * sizeof(struct pokemon));
+	if (aux == NULL) {
+		return false;
 	}
 	char *nombre_original = pokemon.nombre;
 	pokemon.nombre = malloc(str_lenr(nombre_original, 0) + 1);
 	if (pokemon.nombre == NULL) {
 		return false;
 	}
+	pokedex->pokemons = aux;
 	strcpy(pokemon.nombre, nombre_original);
 	pokedex->pokemons[pokedex->cantidad_pokemons] = pokemon;
 	pokedex->cantidad_pokemons++;
@@ -144,7 +138,7 @@ size_t pokedex_iterar_pokemones(struct pokedex *pokedex,
 
 	for (size_t i = 0; i < pokedex->cantidad_pokemons; i++) {
 		if (!funcion(&pokedex->pokemons[pokemones_iterados], ctx)) {
-			return pokemones_iterados;
+			return pokemones_iterados + 1;
 
 		} else {
 			pokemones_iterados++;
