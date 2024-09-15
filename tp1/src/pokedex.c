@@ -36,6 +36,9 @@ struct pokedex *pokedex_crear()
 
 size_t pokedex_cantidad_pokemones(struct pokedex *pokedex)
 {
+	if (pokedex == NULL) {
+		return 0;
+	}
 	return pokedex->cantidad_pokemons;
 }
 
@@ -129,6 +132,7 @@ size_t pokedex_iterar_pokemones(struct pokedex *pokedex,
 	pokedex_ordenar_pokemons_alfabeticamente(pokedex);
 	for (size_t i = 0; i < pokedex->cantidad_pokemons; i++) {
 		if (!funcion(&pokedex->pokemons[i], ctx)) {
+			i = i + pokedex->cantidad_pokemons;
 			return pokemones_iterados;
 
 		} else {

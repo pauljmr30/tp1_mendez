@@ -74,6 +74,10 @@ size_t leer_linea_csv(struct archivo_csv *archivo, size_t columnas,
 		if (columna == NULL) {
 			break;
 		}
+		if (funciones[columnas_leidas] == NULL) {
+			free(columna);
+			break;
+		}
 		if (funciones[columnas_leidas](columna, ctx[columnas_leidas])) {
 			columnas_leidas++;
 		} else {
