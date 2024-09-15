@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <string.h>
 
+
 struct archivo_csv {
 
     char separador;
