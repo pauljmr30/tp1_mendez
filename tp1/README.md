@@ -35,7 +35,9 @@ Se inicializa una pokedex
 Funciones y procedimientos
 pokedex_crear
 
-
+<div align="center">
+<img width="70%" src="img/structpokedex.png">
+</div>
 
 
 
