@@ -27,6 +27,24 @@ valgrind --leak-check=full --track-origins=yes --show-reachable=yes --error-exit
 
 ##  Funcionamiento
 
+Funcionamiento General
+El programa recibe un archivo .csv con informacion de los pokemon a procesar.
+Se abre el archivo en modo lectura en una estructura arhivo_csv.
+Se inicializa una pokedex 
+
+Funciones y procedimientos
+pokedex_crear
+
+
+
+
+
+
+
+
+
+
+
 Explicación de cómo funcionan las estructuras desarrolladas en el TP y el funcionamiento general del mismo.
 
 Aclarar en esta parte todas las decisiones que se tomaron al realizar el TP, cosas que no se aclaren en el enunciado, fragmentos de código que necesiten explicación extra, etc.
