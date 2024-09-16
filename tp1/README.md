@@ -34,6 +34,8 @@ Se inicializa una pokedex
 
 Funciones y procedimientos
 
+Pokedex.c
+
 * pokedex_crear: Asigna memoria para struct pokedex con malloc e inicializa sus campos; la memoria para el vector de pokemons es dinamica y depende la cantidad de los mismos, inicia en 0 bytes.
 Todas las operaciones de la función son O(1) => pokedex_crear es O(1).
 
@@ -54,6 +56,16 @@ La funcion es O(n*m), ya que tiene un ciclo for(O(n) en el peor de los casos), s
 <img width="70%" src="img/structpokedex.png">
 </div>
 
+Csv.c
+
+*  abrir_archivo_csv: Su complejidad es O(1), ya que tanto el malloc usado, como la apertura de archivos, tienen esta complejidad.
+
+*  extraer_columna: A partir de una linea de texto, extrae cada columna delimitada por un separador, usa el parametro *inicio, para que luego de extraer cada columna, guarda en inicio la posicion desde la que se va a procesar la siguiente columna.
+Su complejidad es O(n), ya que el primer bucle solo recorre la linea hasta un valor de corte, y el segundo bucle solo copia los valores validos en la columna a retornar. 
+  
+*  leer_linea_csv: Aplica, a cada columna, cada funcion recibida con su contexto; y libera la memoria ocupada por la columna, luego de aplicarle la funcion correspondiente.
+Su complejidad computacional es O(n*m), ya que extraer_columna es O(n) y se encuentra dentro de un bucle que iterará en cuanto columnas haya O(m). 
+*  cerrar_archivo_csv: Su complejidad es O(1), ya que todas sus operaciones lo son.
 
 
 
