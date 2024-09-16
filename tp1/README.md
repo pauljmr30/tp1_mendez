@@ -33,8 +33,10 @@ Se abre el archivo en modo lectura en una estructura arhivo_csv.
 Se inicializa una pokedex 
 
 Funciones y procedimientos
-pokedex_crear
-
+* pokedex_crear: Asigna memoria para struct pokedex con malloc e inicializa sus campos; la memoria para el vector de pokemons es dinamica y depende la cantidad de los mismos, inicia en 0 bytes.
+Todas las operaciones de la función son O(1) => pokedex_crear es O(1). 
+* pokedex_buscar_pokemon: Mediante strcmp(), compara el nombre ingresado con el de cada pokemon.
+*  
 <div align="center">
 <img width="70%" src="img/structpokedex.png">
 </div>
