@@ -67,6 +67,10 @@ Su complejidad es O(n), ya que el primer bucle solo recorre la linea hasta un va
 Su complejidad computacional es O(n*m), ya que extraer_columna es O(n) y se encuentra dentro de un bucle que iterará en cuanto columnas haya O(m). 
 *  cerrar_archivo_csv: Su complejidad es O(1), ya que todas sus operaciones lo son.
 
+  Diagrama de struct archivo_csv *archivo
+<div align="center">
+<img width="70%" src="img/structarchivo.png">
+</div>
 
 
 
