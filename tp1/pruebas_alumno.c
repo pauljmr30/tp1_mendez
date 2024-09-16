@@ -151,12 +151,16 @@ void agregarUnPokemonALaPokedexDebeIncrementarLaCantidadDePokemones()
 	const struct pokemon *pokemon_encontrado =
 		pokedex_buscar_pokemon(pokedex, "Pikachu");
 	pa2m_afirmar(pokemon_encontrado != NULL &&
-			     strcmp(pokemon_encontrado->nombre,
-					     "Pikachu") == 0,
+			     strcmp(pokemon_encontrado->nombre, "Pikachu") == 0,
 		     "El Pokémon agregado está correctamente en la pokedex");
 
 	pokedex_destruir(pokedex);
 }
+bool procesar_pokemon(struct pokemon *pokemon, void *ctx)
+{
+	return true;
+}
+
 int main()
 {
 	pa2m_nuevo_grupo("Pruebas de archivos CSV");
@@ -171,9 +175,11 @@ int main()
 	agregarPokemonConNombreNullDebeRetornarFalse();
 	agregarPokemonIgualCincoVecesDevuelveTrue();
 	printf("\n"),
-	iterarPokedexConSeisPokemonesDetenerseEnTerceroDevuelveTres();
+		iterarPokedexConSeisPokemonesDetenerseEnTerceroDevuelveTres();
 	pokedeAgregarAgregaUnPokemon();
 	agregarUnPokemonALaPokedexDebeIncrementarLaCantidadDePokemones();
+
+	printf("\n");
 
 	return pa2m_mostrar_reporte();
 }
