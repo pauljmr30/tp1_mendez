@@ -33,10 +33,23 @@ Se abre el archivo en modo lectura en una estructura arhivo_csv.
 Se inicializa una pokedex 
 
 Funciones y procedimientos
+
 * pokedex_crear: Asigna memoria para struct pokedex con malloc e inicializa sus campos; la memoria para el vector de pokemons es dinamica y depende la cantidad de los mismos, inicia en 0 bytes.
-Todas las operaciones de la función son O(1) => pokedex_crear es O(1). 
+Todas las operaciones de la función son O(1) => pokedex_crear es O(1).
+
+* pokedex_cantidad_pokemones: Complejidad O(1).
+  
 * pokedex_buscar_pokemon: Mediante strcmp(), compara el nombre ingresado con el de cada pokemon.
-*  
+La funcion es O(n*m), ya que tiene un ciclo for(O(n) en el peor de los casos), strcmp(O(m) en el peor de los casos) y uno esta dentro del otro. 
+
+*  pokedex_agregar_pokemon: Por cada pokemon que se agrega, reasgina memoria al vector pokemons de pokedex mediante un realloc aplicado a un vector de pokemons auxiliar, que de apuntar a una direcciòn valida, se le asigna esa dirección al vector pokemons. Finalmente, se copia los datos del pokemon agregado, en la ultima posicion del vector pokemons.
+  La funcion es O(n+m), ya que contiene realloc(O(n)) y strlen(O(n)).
+
+*  pokedex_iterar: La funcion es O(n*2) debido al ordenamiento de pokemons que tiene.
+  
+*  pokedex_destruir: Su complejidad es O(n) debido a que el ciclo iterará todos los pokemons de pokedex.
+
+    Diagrama de struct pokedex *pokedex:
 <div align="center">
 <img width="70%" src="img/structpokedex.png">
 </div>
